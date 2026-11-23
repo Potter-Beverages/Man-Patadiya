@@ -444,6 +444,15 @@
             gap: 20px;
         }
 
+        /* Divider above the two additional boxes */
+        .biodata-grid .biodata-divider {
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: 100%;
+            padding: 18px 35px;
+            margin: 8px 0 0;
+        }
+
         .biodata-card {
             padding: 35px;
             border: 1px solid var(--border);
@@ -877,45 +886,119 @@
         }
 
 
-        /* =========================================
-           19. PRINT STYLES
-        ========================================= */
+/* =========================================
+   19. PRINT / DOWNLOAD PDF STYLES
+========================================= */
 
-        @media print {
+@page {
+    size: A4;
+    margin: 12mm;
+}
 
-            header,
-            .hero-buttons,
-            .contact-section,
-            footer,
-            .divider {
-                display: none !important;
-            }
+@media print {
 
-            body {
-                background: white;
-                color: black;
-            }
+    /* Hide navigation and unnecessary elements */
+    header,
+    .hero-buttons,
+    .divider {
+        display: none !important;
+    }
 
-            .hero {
-                padding-top: 30px;
-                min-height: auto;
-            }
+    /* General page styling */
+    body {
+        background: white !important;
+        color: black !important;
+        overflow: visible !important;
+    }
 
-            .section {
-                padding: 30px 15px;
-            }
+    .hero {
+        padding-top: 30px;
+        min-height: auto;
+    }
 
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
+    .section {
+        padding: 30px 15px;
+        max-width: 100%;
+    }
 
-            .biodata-card,
-            .family-card {
-                break-inside: avoid;
-            }
+    /* Show all animated content */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
 
-        }
+    /* CONTACT SECTION */
+    .contact-section {
+        display: block !important;
+        visibility: visible !important;
+        background: #eee7db !important;
+        color: #252522 !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        break-inside: avoid;
+    }
+
+    .contact-container {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .contact-section a {
+        color: #252522 !important;
+    }
+
+    /* FOOTER - KEEP ORIGINAL WEBSITE COLOURS */
+    footer {
+        display: block !important;
+        visibility: visible !important;
+        background: #252522 !important;
+        color: white !important;
+        padding: 35px !important;
+        width: 100% !important;
+        break-inside: avoid;
+        margin-top: 0 !important;
+    }
+
+    .footer-content {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-direction: row !important;
+        text-align: left !important;
+        gap: 20px !important;
+    }
+
+    .footer-logo {
+        color: white !important;
+    }
+
+    .footer-logo span {
+        color: #c46c60 !important;
+    }
+
+    .footer-content p {
+        color: #aaa69d !important;
+    }
+
+    .footer-japanese {
+        color: #b79a65 !important;
+    }
+
+    /* Prevent cards from splitting between pages */
+    .biodata-card,
+    .family-card,
+    .education-item {
+        break-inside: avoid;
+    }
+
+    /* Preserve original website colours */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+}
 
     </style>
 
@@ -956,7 +1039,7 @@
 
                 <li><a href="#family">Family</a></li>
 
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">contact</a></li>
 
             </ul>
 
@@ -984,7 +1067,7 @@
 
             <h1>
                 Hello,<br>
-                I'm <span>Mann</span><br>
+                I'm <span>Man</span><br>
                 Patadiya.
             </h1>
 
@@ -1219,7 +1302,7 @@
 
                     <div class="card-row">
                         <span>Weight</span>
-                        <span>90-kgs</span>
+                        <span>81-kgs</span>
                     </div>
 
                     <div class="card-row">
@@ -1290,12 +1373,89 @@
 
                 </div>
 
+                <!-- BUSINESS DIVIDER -->
+                <div class="divider biodata-divider">
+                    <span>BUSINESS DETAILS</span>
+                </div>
+
+                 <!-- KUSH COAL -->
+
+                <div class="biodata-card reveal">
+
+                    <div class="card-icon">✧</div>
+
+                    <h3>KUSH COAL</h3>
+
+                    <div class="card-row">
+                        <span>OWNER</span>
+                        <span>PARESHBHAI L. PATADIYA</span>
+                    </div>
+
+                    <div class="card-row">
+                        <span>ADDRESS</span>
+                        <span>LOTHADA, RAJKOT, GUJRAT</span>
+                    </div>
+
+                    <div class="card-row">
+                        <span>CONTACT</span>
+                        <span>+91 90333 14777</span>
+                    </div>
+
+                </div>
+
+
+                <!-- POTTER BEVERAGES -->
+
+                <div class="biodata-card reveal">
+
+                    <div class="card-icon">❀</div>
+
+                    <h3>POTTER<sup>®</sup> BEVERAGES</h3>
+
+                    <div class="card-row">
+                        <span>OWNER</span>
+                        <span>MAN P. PATADIYA</span>
+                    </div>
+
+		<div class="card-row">
+                        <span>ADDRESS</span>
+                        <span>LOTHADA, RAJKOT, GUJRAT</span>
+                    </div>
+
+                    <div class="card-row">
+                        <span>CONTACT</span>
+                        <span>+91 97731 00064</span>
+                    </div>
+
+
+			<div class="contact-details">
+
+                <a href="https://www.instagram.com/potter_beverages?__pwa=1#/" target="_blank">
+		<img src="Instagram.png" width="30" hight="30" class="left-img" />
+    			Instagram
+		</a>
+
+                <a href="https://www.potterbeverage.com/" target="_blank">
+		<img src="Potter.png" width="20" hight="20" class="left-img" />
+    			Website
+		</a>
+
 
             </div>
 
         </div>
 
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
     </section>
+
 
 
 
